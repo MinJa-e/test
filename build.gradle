@@ -1,0 +1,25 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools' devtool없이도 라이브리로드 되던데 이거 까는 이유 확인하기
+//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' 톰캣 라이브러리떔에 실행 안 될 떄 있는데 다시 확인해보고 블로그에 정리하기
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
